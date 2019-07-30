@@ -12,6 +12,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+
 </head>
 
 <body class="is-preload">
@@ -153,31 +154,33 @@
 				<div class="col-4 col-6-medium col-12-small">
 					<article class="box style2">
 						<a href="https://doptori.com/" target="_blank" class="image featured">
-							<img src="images/doptori.jpg" class="col-4 col-6-medium col-12-small"  alt="" /></a>
+							<img src="images/doptori.jpg" class="col-4 col-6-medium col-12-small" alt="" /></a>
 						<h3>
-							<a href="https://doptori.com/" target="_blank">Doptori</a>
+							<a href="https://doptori.com/" target="_blank">Doptori </a>
 						</h3>
-						<p>
+						<p class="show-read-more">
 							A School management web application that provides services for
 							multiple schools/colleges/madrasas to manage their organization
 							at the same time. Multiple schools will use the same application
 							but their database will be different. The system will provide
 							A-Z services to manage their organization online.
 						</p>
-						<p style="color: olivedrab">
-							User: school@school1.com<br />
+						<p id="Password" style="display: none">
+							User: school@school1.com <br>
 							Password: Wdl@ad4
 						</p>
+
 					</article>
 				</div>
 				<div class="col-4 col-6-medium col-12-small">
 					<article class="box style2">
 						<a href="https://github.com/imamulnayeem/Effortless-POS" target="_blank"
-							class="image featured"><img src="images/EffortlessPos.png" class="col-4 col-6-medium col-12-small" alt="" /></a>
+							class="image featured"><img src="images/EffortlessPos.png"
+								class="col-4 col-6-medium col-12-small" alt="" /></a>
 						<h3>
 							<a href="https://github.com/imamulnayeem/Effortless-POS" target="_blank">EffortLess POS</a>
 						</h3>
-						<p>
+						<p class="show-read-more">
 							A web application based on Asp.net mvc5 which can manage the
 							point of sales system of a super shop or any kind of shop.
 						</p>
@@ -186,12 +189,12 @@
 				<div class="col-4 col-6-medium col-12-small">
 					<article class="box style2">
 						<a href="https://github.com/imamulnayeem/Learn-in-AR" target="_blank"
-							class="image featured"><img src="images/Learn in ar.jpg" class="col-4 col-6-medium col-12-small" 
-								alt="" /></a>
+							class="image featured"><img src="images/Learn in ar.jpg"
+								class="col-4 col-6-medium col-12-small" alt="" /></a>
 						<h3>
 							<a href="https://github.com/imamulnayeem/Learn-in-AR" target="_blank">Learn in AR</a>
 						</h3>
-						<p>
+						<p class="show-read-more">
 							This is an Augmented Reality Base android app, developed by
 							using Unity 3D and Android SDK. This app is for children to
 							teach them alphabets, numbers, and word with the virtual 3D
@@ -205,12 +208,11 @@
 				<div class="col-4 col-6-medium col-12-small">
 					<article class="box style2">
 						<a href="https://github.com/imamulnayeem/VacationGoals" target="_blank"
-							class="image featured"><img src="images/vacation goal.png"
-								 alt="" /></a>
+							class="image featured"><img src="images/vacation goal.png" alt="" /></a>
 						<h3>
 							<a href="https://github.com/imamulnayeem/VacationGoals" target="_blank">Vacation Goals</a>
 						</h3>
-						<p>
+						<p class="show-read-more">
 							An android application for travellers with names, pictures and
 							maps of the places those are worth to travel in Bangladesh.
 						</p>
@@ -219,12 +221,12 @@
 				<div class="col-4 col-6-medium col-12-small">
 					<article class="box style2">
 						<a href="https://github.com/imamulnayeem/WannaBeCrazy" target="_blank"
-							class="image featured"><img src="images/Wanna be crazy.jpg" class="col-4 col-6-medium col-12-small" alt=""
-								 /></a>
+							class="image featured"><img src="images/Wanna be crazy.jpg"
+								class="col-4 col-6-medium col-12-small" alt="" /></a>
 						<h3>
 							<a href="https://github.com/imamulnayeem/WannaBeCrazy" target="_blank">Wanna Be Crazy</a>
 						</h3>
-						<p>
+						<p class="show-read-more">
 							An android number game that will allow you to play next round if
 							you can answer correctly with a simple correct or wrong button.
 						</p>
@@ -428,6 +430,37 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<!-- See more implementation -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var maxLength = 135;
+			$(".show-read-more").each(function () {
+				var myStr = $(this).text();
+				if ($.trim(myStr).length > maxLength) {
+					var newStr = myStr.substring(0, maxLength);
+					var removedStr = myStr.substring(maxLength, myStr.length);
+					$(this).empty().html(newStr);
+					$(this).append(' <a href="javascript:void(0);" class="read-more">read more...</a>');
+					$(this).append('<span class="more-text">' + removedStr + '</span>');
+				}
+			});
+			$(".read-more").click(function () {
+				$(this).siblings(".more-text").contents().unwrap();
+				$(this).remove();
+				document.getElementById("Password").style.display = "block";
+			});
+		});
+	</script>
+	<style type="text/css">
+		.show-read-more .more-text {
+			display: none;
+		}
+
+		a.read-more {
+			text-decoration: none;
+		}
+	</style>
 </body>
 
 </html>
